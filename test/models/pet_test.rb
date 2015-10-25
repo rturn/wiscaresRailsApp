@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class PetInfoTest < ActiveSupport::TestCase
+class PetTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

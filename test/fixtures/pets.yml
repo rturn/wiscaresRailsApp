@@ -6,7 +6,7 @@ one:
   species: MyString
   breed: MyString
   gender: MyString
-  birthDate: 2015-10-24
+  birthDate: 2015-10-25
   weight: 1.5
 
 two:
@@ -15,5 +15,5 @@ two:
   species: MyString
   breed: MyString
   gender: MyString
-  birthDate: 2015-10-24
+  birthDate: 2015-10-25
   weight: 1.5

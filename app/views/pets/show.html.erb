@@ -2,38 +2,38 @@
 
 <p>
   <strong>Userid:</strong>
-  <%= @pet_info.userId %>
+  <%= @pet.userId %>
 </p>
 
 <p>
   <strong>Name:</strong>
-  <%= @pet_info.name %>
+  <%= @pet.name %>
 </p>
 
 <p>
   <strong>Species:</strong>
-  <%= @pet_info.species %>
+  <%= @pet.species %>
 </p>
 
 <p>
   <strong>Breed:</strong>
-  <%= @pet_info.breed %>
+  <%= @pet.breed %>
 </p>
 
 <p>
   <strong>Gender:</strong>
-  <%= @pet_info.gender %>
+  <%= @pet.gender %>
 </p>
 
 <p>
   <strong>Birthdate:</strong>
-  <%= @pet_info.birthDate %>
+  <%= @pet.birthDate %>
 </p>
 
 <p>
   <strong>Weight:</strong>
-  <%= @pet_info.weight %>
+  <%= @pet.weight %>
 </p>
 
-<%= link_to 'Edit', edit_pet_info_path(@pet_info) %> |
-<%= link_to 'Back', pet_infos_path %>
+<%= link_to 'Edit', edit_pet_path(@pet) %> |
+<%= link_to 'Back', pets_path %>

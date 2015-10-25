@@ -1,10 +1,10 @@
-class PetInfosController < ApplicationController
+class PetInfoController < ApplicationController
   before_action :set_pet_info, only: [:show, :edit, :update, :destroy]
 
   # GET /pet_infos
   # GET /pet_infos.json
   def index
-    @pet_infos = PetInfo.all
+    @pet_info = PetInfo.all
   end
 
   # GET /pet_infos/1
