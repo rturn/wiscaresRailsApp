@@ -1,43 +1,120 @@
-<div class="jumbotron text-center">
-  <div class="container">
-    <a href="/" class="lang-logo">
-      <img src="<%= asset_path('lang-logo.png') %>">
-    </a>
-    <h1>Getting Started with Ruby on Heroku</h1>
-    <p>This is a sample Ruby application deployed to Heroku. It's a reasonably simple app - but a good foundation for understanding how to get the most out of the Heroku platform.</p>
-    <a type="button" class="btn btn-lg btn-default" href="https://devcenter.heroku.com/articles/getting-started-with-ruby"><span class="glyphicon glyphicon-flash"></span> Getting Started with Ruby</a>
-    <a type="button" class="btn btn-lg btn-primary" href="https://github.com/heroku/ruby-getting-started"><span class="glyphicon glyphicon-download"></span> Source on GitHub</a>
-  </div>
-</div>
-<div class="container">
-  <div class="alert alert-info text-center" role="alert">
-    To deploy your own copy, and learn the fundamentals of the Heroku platform, head over to the <a href="https://devcenter.heroku.com/articles/getting-started-with-ruby" class="alert-link">Getting Started with Ruby on Heroku</a> tutorial.
-  </div>
-  <hr>
-  <div class="row">
-    <div class="col-md-6">
-      <h3><span class="glyphicon glyphicon-info-sign"></span> How this sample app works</h3>
-      <ul>
-        <li>This app was deployed to Heroku, either using Git or by using <a href="https://github.com/heroku/ruby-getting-started">Heroku Button</a> on the repository.</li>
+<html ng-app="ionicApp">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
 
-        <li>When Heroku received the source code, it grabbed all the dependencies in the <a href="https://github.com/heroku/ruby-getting-started/blob/master/Gemfile">Gemfile</a>.</li>
-        <li>The platform then spins up a dyno, a lightweight container that provides an isolated environment in which the slug can be mounted and executed.</li>
-        <li>You can scale your app, manage it, and deploy over <a href="https://addons.heroku.com/">150 add-on services</a>, from the Dashboard or CLI.</li>
-        <li>Check out the <a href="https://devcenter.heroku.com/articles/getting-started-with-ruby">Getting Started</a> guide to learn more!</li>
-      </ul>
-    </div>
-    <div class="col-md-6">
-      <h3><span class="glyphicon glyphicon-link"></span> Helpful Links</h3>
-      <ul>
-        <li><a href="https://www.heroku.com/home">Heroku</a></li>
-        <li><a href="https://devcenter.heroku.com/">Heroku Dev Center</a></li>
-        <li><a href="https://devcenter.heroku.com/articles/getting-started-with-ruby">Getting Started with Ruby on Heroku</a></li>
-        <li><a href="https://devcenter.heroku.com/articles/deploying-ruby-and-rails">Deploying Ruby Apps on Heroku</a></li>
-        <li><a href="https://devcenter.heroku.com/articles/getting-started-with-jruby">Getting Started with Ruby on Heroku (Microsoft Windows)</a></li>
-      </ul>
-    </div>
-  </div> <!-- row -->
-   <div class="alert alert-info text-center" role="alert">
-    Please do work through the Getting Started guide, even if you do know how to build such an application.  The guide covers the basics of working with Heroku, and will familiarize you with all the concepts you need in order to build and deploy your own apps.
-  </div>
-</div>
+    <title>Side Menus</title>
+
+    <link href="//code.ionicframework.com/nightly/css/ionic.css" rel="stylesheet">
+    <script src="//code.ionicframework.com/nightly/js/ionic.bundle.js"></script>
+  </head>
+
+  <body ng-controller="MainCtrl">
+
+    <ion-nav-view></ion-nav-view>
+
+    <script id="templates/event-menu.html" type="text/ng-template">
+      <ion-side-menus enable-menu-with-back-views="false">
+
+        <ion-side-menu-content>
+          <ion-nav-bar class="bar-positive">
+            <ion-nav-back-button>
+            </ion-nav-back-button>
+
+            <ion-nav-buttons side="left">
+              <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
+              </button>
+            </ion-nav-buttons>
+          </ion-nav-bar>
+
+          <ion-nav-view name="menuContent"></ion-nav-view>
+        </ion-side-menu-content> 
+
+        <ion-side-menu side="left">
+          <ion-header-bar class="bar-assertive">
+            <h1 class="title">Left Menu</h1>
+          </ion-header-bar>
+          <ion-content>
+            <ul class="list">
+              <!-- Note each link has the 'menu-close' attribute so the menu auto closes when clicking on one of these links -->
+              <a href="#/event/check-in" class="item" menu-close>Check-in</a>
+              <a href="#/event/attendees" class="item" menu-close>Attendees</a>
+            </ul>
+          </ion-content>
+        </ion-side-menu>
+
+      </ion-side-menus>
+    </script>
+
+    <script id="templates/home.html" type="text/ng-template">
+      <ion-view view-title="Welcome">
+        <ion-content class="padding">
+          <p>Swipe to the right to reveal the left menu.</p>
+          <p>(On desktop click and drag from left to right)</p>
+        </ion-content>
+      </ion-view>
+    </script>
+
+    <script id="templates/check-in.html" type="text/ng-template">
+      <ion-view view-title="Event Check-in">
+        <ion-content>
+          <form class="list" ng-show="showForm">
+            <div class="item item-divider">
+              Attendee Info
+            </div>
+            <label class="item item-input">
+              <input type="text" placeholder="First Name" ng-model="attendee.firstname">
+            </label>
+            <label class="item item-input">
+              <input type="text" placeholder="Last Name" ng-model="attendee.lastname">
+            </label>
+            <div class="item item-divider">
+              Shirt Size
+            </div>
+            <ion-radio ng-repeat="shirtSize in shirtSizes"
+                       ng-value="shirtSize.value"
+                       ng-model="attendee.shirtSize">
+              {{ shirtSize.text }}
+            </ion-radio>
+            <div class="item item-divider">
+              Lunch
+            </div>
+            <ion-toggle ng-model="attendee.vegetarian">
+              Vegetarian
+            </ion-toggle>
+            <div class="padding">
+              <button class="button button-block" ng-click="submit()">Checkin</button>
+            </div>
+          </form>
+
+          <div ng-hide="showForm">
+            <pre ng-bind="attendee | json"></pre> 
+            <a href="#/event/attendees">View attendees</a>
+          </div>
+        </ion-content>
+      </ion-view>
+    </script>
+
+    <script id="templates/attendees.html" type="text/ng-template">
+      <ion-view view-title="Event Attendees">
+        <ion-content>
+          <div class="list">
+            <ion-toggle ng-repeat="attendee in attendees | orderBy:'firstname' | orderBy:'lastname'"
+                        ng-model="attendee.arrived"
+                        ng-change="arrivedChange(attendee)">
+              {{ attendee.firstname }}
+              {{ attendee.lastname }}
+            </ion-toggle>
+            <div class="item item-divider">
+              Activity
+            </div>
+            <div class="item" ng-repeat="msg in activity">
+              {{ msg }}
+            </div>
+          </div>
+        </ion-content>
+      </ion-view>
+    </script>
+
+  </body>
+</html>
