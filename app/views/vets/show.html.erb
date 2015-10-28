@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @vet.name %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @vet.address %>
+</p>
+
+<p>
+  <strong>Contact:</strong>
+  <%= @vet.contact %>
+</p>
+
+<p>
+  <strong>Userid:</strong>
+  <%= @vet.userID %>
+</p>
+
+<p>
+  <strong>Petid:</strong>
+  <%= @vet.petID %>
+</p>
+
+<%= link_to 'Edit', edit_vet_path(@vet) %> |
+<%= link_to 'Back', vets_path %>

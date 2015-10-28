@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  dateEntered: 2015-10-28
+  petID: 1
+  name: MyString
+  dateGiven: 2015-10-28
+
+two:
+  dateEntered: 2015-10-28
+  petID: 1
+  name: MyString
+  dateGiven: 2015-10-28

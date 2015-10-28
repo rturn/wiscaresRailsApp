@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
+  resources :visits
+  resources :vets
+  resources :vaccinations
+  resources :reminders
+  resources :medications
+  resources :health_problems
+  resources :events
   resources :users
   resources :pets
   # The priority is based upon order of creation: first created -> highest priority.

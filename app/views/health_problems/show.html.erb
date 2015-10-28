@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Dateentered:</strong>
+  <%= @health_problem.dateEntered %>
+</p>
+
+<p>
+  <strong>Petid:</strong>
+  <%= @health_problem.petID %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @health_problem.description %>
+</p>
+
+<p>
+  <strong>Dateoccurred:</strong>
+  <%= @health_problem.dateOccurred %>
+</p>
+
+<%= link_to 'Edit', edit_health_problem_path(@health_problem) %> |
+<%= link_to 'Back', health_problems_path %>
