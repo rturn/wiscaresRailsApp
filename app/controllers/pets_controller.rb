@@ -4,7 +4,7 @@ class PetsController < ApplicationController
   # GET /pets
   # GET /pets.json
   def index
-    @pets = Pet.all()
+    @pets = Pet.find_by_sql("SELECT * FROM pets WHERE \"userId\" = 1")
   end
 
   # GET /pets/1
