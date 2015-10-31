@@ -4,7 +4,7 @@ class PetsController < ApplicationController
   # GET /pets
   # GET /pets.json
   def index
-    @pets = Pet.find(:all, :conditions => {:userId => "1"})
+    @pets = Pet.find(:all, :conditions => "userId == 1")
   end
 
   # GET /pets/1
