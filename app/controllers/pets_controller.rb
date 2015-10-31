@@ -4,7 +4,7 @@ class PetsController < ApplicationController
   # GET /pets
   # GET /pets.json
   def index
-    @pets = Pet.find(:all)
+    @pets = Pet.all()
   end
 
   # GET /pets/1
