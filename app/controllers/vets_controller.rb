@@ -4,7 +4,7 @@ class VetsController < ApplicationController
   # GET /vets
   # GET /vets.json
   def index
-    @vets = Vet.all
+    @vets = Vet.find_by_sql ["SELECT * FROM vets WHERE \"userID\" = ?", params[:userID].to_i]
   end
 
   # GET /vets/1
