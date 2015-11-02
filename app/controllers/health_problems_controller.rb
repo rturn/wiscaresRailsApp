@@ -4,7 +4,7 @@ class HealthProblemsController < ApplicationController
   # GET /health_problems
   # GET /health_problems.json
   def index
-    @health_problems = HealthProblem.all
+    @health_problems = HealthProblem.find_by_sql ["SELECT * FROM health_problems WHERE \"userId\" = ?", params[:userId].to_i]
   end
 
   # GET /health_problems/1

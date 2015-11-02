@@ -4,7 +4,6 @@ class PetsController < ApplicationController
   # GET /pets
   # GET /pets.json
   def index
-    puts(params[:userId])
     @pets = Pet.find_by_sql ["SELECT * FROM pets WHERE \"userId\" = ?", params[:userId].to_i]
   end
 
