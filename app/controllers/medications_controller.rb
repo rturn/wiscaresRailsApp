@@ -4,7 +4,7 @@ class MedicationsController < ApplicationController
   # GET /medications
   # GET /medications.json
   def index
-    @medications = Medication.all
+    @medications = Medication.find_by_sql ["SELECT * FROM medications WHERE \"petID\" = ?", params[:petID].to_i]
   end
 
   # GET /medications/1

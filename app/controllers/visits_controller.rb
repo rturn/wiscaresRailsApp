@@ -4,7 +4,7 @@ class VisitsController < ApplicationController
   # GET /visits
   # GET /visits.json
   def index
-    @visits = Visit.all
+    @visits = Visit.find_by_sql ["SELECT * FROM visits WHERE \"petID\" = ?", params[:petID].to_i]
   end
 
   # GET /visits/1

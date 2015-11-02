@@ -4,7 +4,7 @@ class VaccinationsController < ApplicationController
   # GET /vaccinations
   # GET /vaccinations.json
   def index
-    @vaccinations = Vaccination.all
+    @vaccinations = Vaccination.find_by_sql ["SELECT * FROM vaccinations WHERE \"petID\" = ?", params[:petID].to_i]
   end
 
   # GET /vaccinations/1
