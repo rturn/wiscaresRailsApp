@@ -5,7 +5,7 @@ gem 'rails_12factor', group: :production
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.4'
 # Use postgresql as the database for Active Record
-gem 'sqlite3'
+gem 'pg'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -20,6 +20,10 @@ gem 'active_model_serializers'
 gem 'rack-cors', :require => 'rack/cors'
 # Use devise for logins
 gem 'devise'
+
+source "https://rails-assets.org" do
+  gem "rails-assets-angular-devise"
+end
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
