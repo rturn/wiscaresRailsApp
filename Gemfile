@@ -26,7 +26,7 @@ source "https://rails-assets.org" do
 end
 
 # Use amazon s3 to store images
-gem 'aws-sdk', '~> 2'
+gem 'aws-sdk', '< 2.0'
 # Use paperclip to handle upload / retrieval of images
 gem 'paperclip'
 # Use jquery as the JavaScript library
