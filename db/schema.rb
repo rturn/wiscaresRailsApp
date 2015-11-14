@@ -11,10 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151029022619) do
+ActiveRecord::Schema.define(version: 20151114154833) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "documents", force: :cascade do |t|
+    t.integer "petID"
+    t.string  "description", limit: 80
+    t.string  "documentURL", limit: 80
+  end
 
   create_table "events", force: :cascade do |t|
     t.date    "dateEntered"
@@ -28,6 +34,11 @@ ActiveRecord::Schema.define(version: 20151029022619) do
     t.date    "dateOccurred"
   end
 
+  create_table "images", primary_key: "img", force: :cascade do |t|
+    t.text    "imgname"
+    t.integer "id",      default: "nextval('images_id_seq'::regclass)", null: false
+  end
+
   create_table "medications", force: :cascade do |t|
     t.date    "dateEntered"
     t.integer "petID"
@@ -36,13 +47,18 @@ ActiveRecord::Schema.define(version: 20151029022619) do
   end
 
   create_table "pets", force: :cascade do |t|
-    t.integer "userId"
-    t.string  "name",      limit: 80
-    t.string  "species",   limit: 80
-    t.string  "breed",     limit: 80
-    t.string  "gender",    limit: 10
-    t.date    "birthDate"
-    t.float   "weight"
+    t.integer  "userId"
+    t.string   "name",               limit: 80
+    t.string   "species",            limit: 80
+    t.string   "breed",              limit: 80
+    t.string   "gender",             limit: 10
+    t.date     "birthDate"
+    t.float    "weight"
+    t.string   "photoURL",           limit: 80
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
   end
 
   create_table "reminders", force: :cascade do |t|
@@ -90,6 +106,7 @@ ActiveRecord::Schema.define(version: 20151029022619) do
     t.date    "dateVisited"
   end
 
+  add_foreign_key "documents", "pets", column: "petID", name: "fkPetID"
   add_foreign_key "events", "pets", column: "petID", name: "fkPetID"
   add_foreign_key "health_problems", "pets", column: "petID", name: "fkPetID"
   add_foreign_key "medications", "pets", column: "petID", name: "fkPetID"
