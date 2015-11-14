@@ -35,5 +35,10 @@
   <%= @pet.weight %>
 </p>
 
+<div class="front">
+  <%= link_to pet, class: 'pic-link' do %>
+    <%= image_tag pet.photo.url(:square) %>
+  <% end %>
+</div>
 <%= link_to 'Edit', edit_pet_path(@pet) %> |
 <%= link_to 'Back', pets_path %>
