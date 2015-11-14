@@ -25,6 +25,10 @@ source "https://rails-assets.org" do
   gem "rails-assets-angular-devise"
 end
 
+# Use amazon s3 to store images
+gem 'aws-sdk', '~> 2'
+# Use paperclip to handle upload / retrieval of images
+gem 'paperclip'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
