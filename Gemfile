@@ -20,6 +20,7 @@ gem 'active_model_serializers'
 gem 'rack-cors', :require => 'rack/cors'
 # Use devise for logins
 gem 'devise'
+gem 'json'
 
 source "https://rails-assets.org" do
   gem "rails-assets-angular-devise"
