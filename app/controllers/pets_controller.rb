@@ -68,7 +68,9 @@ class PetsController < ApplicationController
     end
 
     def process_params
-      puts params.inspect
+      if params[:file]
+        params[:pet][:photo] = params[:file]
+      end
       puts "I DID IT REDDIT"
     end
 
