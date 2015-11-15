@@ -14,3 +14,13 @@ You may not even read this, it is kinda far down the page.
 Also this apparently does markup so this should look like a fancy equation:
 
 $e^{i\pi} = -1$
+
+==Testing
+
+Testing with rspec included in 'spec' folder. Sample test currently resides in pets_spec.rb. To run tests, invoke:
+
+$bundle exec rspec 
+
+simplecov gem added to generate an HTML coverage report that exists in 
+
+coverage/index.html
