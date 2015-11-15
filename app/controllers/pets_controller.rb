@@ -69,6 +69,7 @@ class PetsController < ApplicationController
 
     def process_params
       if params[:file]
+        params[:pet] = JSON.parse(params[:pet]).with_indifferent_access
         params[:pet][:photo] = params[:file]
       end
       puts "I DID IT REDDIT"
