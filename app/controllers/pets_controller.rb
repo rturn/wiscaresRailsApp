@@ -68,7 +68,8 @@ class PetsController < ApplicationController
     end
 
     def process_params
-      puts "LOOK I DID IT REDDIT" + params
+      puts params.inspect
+      puts "I DID IT REDDIT"
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
