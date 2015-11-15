@@ -1,6 +1,6 @@
 class PetsController < ApplicationController
-  before_filter :process_params, before_action :set_pet, only: [:show, :edit, :update, :destroy]
-
+  before_action :set_pet, only: [:show, :edit, :update, :destroy]
+  before_action :process_params, [:create, :edit]
   # GET /pets
   # GET /pets.json
   def index
