@@ -69,8 +69,10 @@ class PetsController < ApplicationController
 
     def process_params
       if params[:file]
-        params[:pet] = JSON.parse(params[:pet], :symbolize_names => true)
+        params[:pet] = JSON.parse(params[:pet], symbolize_keys = true)
+        puts params.inspect
         params[:pet][:photo] = params[:file]
+        puts "WE MADE IT THIS FAR"
       end
       puts "I DID IT REDDIT"
     end
