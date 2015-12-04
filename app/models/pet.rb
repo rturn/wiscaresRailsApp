@@ -3,7 +3,7 @@ class Pet < ActiveRecord::Base
     thumb: '100x100>',
     square: '200x200#',
     medium: '300x300>'
-  }
+  }, default_url: "http://s3.amazonaws.com/wiscares/GenericPetIcon.png"
 
   def photo_url
     photo.url(:thumb)
