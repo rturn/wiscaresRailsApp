@@ -69,8 +69,6 @@ class PetsController < ApplicationController
 
     def process_params
       if params[:photo]
-        puts params.inspect
-        params[:pet][:photo] = params[:photo]
         puts "WE MADE IT THIS FAR"
       end
     end
