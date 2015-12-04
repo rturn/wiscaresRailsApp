@@ -68,9 +68,6 @@ class PetsController < ApplicationController
     end
 
     def process_params     
-      if params[:photo]
-        puts "WE MADE IT THIS FAR"
-      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

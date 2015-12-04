@@ -5,6 +5,10 @@ class Pet < ActiveRecord::Base
     medium: '300x300>'
   }
 
+  def photo_url
+    photo.url(:thumb)
+  end
+
   # Validate the attached image is image/jpg, image/png, etc
   validates_attachment_content_type :photo, :content_type => /\Aimage\/.*\Z/
 end
