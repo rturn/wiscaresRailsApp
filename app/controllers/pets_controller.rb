@@ -68,13 +68,11 @@ class PetsController < ApplicationController
     end
 
     def process_params
-      if params[:file]
-        params[:pet] = JSON.parse(params[:pet], {symbolize_keys => true})
+      if params[:photo]
         puts params.inspect
-        params[:pet][:photo] = params[:file]
+        params[:pet][:photo] = params[:photo]
         puts "WE MADE IT THIS FAR"
       end
-      puts "I DID IT REDDIT"
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
