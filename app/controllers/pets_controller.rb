@@ -68,6 +68,7 @@ class PetsController < ApplicationController
     end
 
     def process_params
+      params.permit(:photo)
       if params[:photo]
         puts "WE MADE IT THIS FAR"
       end
@@ -76,6 +77,5 @@ class PetsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def pet_params
       params.require(:pet).permit(:userId, :name, :species, :breed, :gender, :birthDate, :weight, :photo)
-      params.permit(:photo)
     end
 end
