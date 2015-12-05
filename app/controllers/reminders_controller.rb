@@ -4,7 +4,7 @@ class RemindersController < ApplicationController
   # GET /reminders
   # GET /reminders.json
   def index
-    @reminders = Reminder.all
+    @reminders = Reminder.find_by_sql ["SELECT * FROM reminders WHERE \"userID\" = ?", params[:userID].to_i]
   end
 
   # GET /reminders/1
